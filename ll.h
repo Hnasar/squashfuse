@@ -73,6 +73,9 @@ void sqfs_ll_op_getattr(fuse_req_t req, fuse_ino_t ino,
 void sqfs_ll_op_opendir(fuse_req_t req, fuse_ino_t ino,
 	struct fuse_file_info *fi);
 
+void sqfs_ll_op_mkdir(fuse_req_t req, fuse_ino_t parent, const char *name,
+			      mode_t mode);
+
 void sqfs_ll_op_create(fuse_req_t req, fuse_ino_t parent, const char *name,
 	mode_t mode, struct fuse_file_info *fi);
 

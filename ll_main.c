@@ -151,6 +151,7 @@ int main(int argc, char *argv[]) {
 	memset(&sqfs_ll_ops, 0, sizeof(sqfs_ll_ops));
 	sqfs_ll_ops.getattr		= sqfs_ll_op_getattr;
 	sqfs_ll_ops.opendir		= sqfs_ll_op_opendir;
+	sqfs_ll_ops.mkdir		= sqfs_ll_op_mkdir;
 	sqfs_ll_ops.releasedir	= sqfs_ll_op_releasedir;
 	sqfs_ll_ops.readdir		= sqfs_ll_op_readdir;
 	sqfs_ll_ops.lookup		= sqfs_ll_op_lookup;

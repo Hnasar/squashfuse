@@ -132,6 +132,13 @@ void sqfs_ll_op_opendir(fuse_req_t req, fuse_ino_t ino,
 	free(lli);
 }
 
+void sqfs_ll_op_mkdir(fuse_req_t req, fuse_ino_t parent, const char *name,
+			      mode_t mode) {
+	update_access_time();
+	fuse_reply_err(req, EROFS);
+}
+
+
 void sqfs_ll_op_create(fuse_req_t req, fuse_ino_t parent, const char *name,
 			      mode_t mode, struct fuse_file_info *fi) {
 	update_access_time();

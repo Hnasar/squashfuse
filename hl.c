@@ -118,6 +118,11 @@ static int sqfs_hl_op_opendir(const char *path, struct fuse_file_info *fi) {
 	return 0;
 }
 
+static int sqfs_hl_op_mkdir(const char *path, mode_t mode) {
+	return -EROFS;
+}
+
+
 static int sqfs_hl_op_releasedir(const char *path,
 		struct fuse_file_info *fi) {
 	free((sqfs_inode*)(intptr_t)fi->fh);
@@ -312,6 +317,7 @@ int main(int argc, char *argv[]) {
 	sqfs_hl_ops.destroy		= sqfs_hl_op_destroy;
 	sqfs_hl_ops.getattr		= sqfs_hl_op_getattr;
 	sqfs_hl_ops.opendir		= sqfs_hl_op_opendir;
+	sqfs_hl_ops.mkdir	= sqfs_hl_op_mkdir;
 	sqfs_hl_ops.releasedir	= sqfs_hl_op_releasedir;
 	sqfs_hl_ops.readdir		= sqfs_hl_op_readdir;
 	sqfs_hl_ops.open		= sqfs_hl_op_open;
